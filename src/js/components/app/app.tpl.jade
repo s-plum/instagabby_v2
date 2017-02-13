@@ -1,4 +1,8 @@
-.loading-overlay(ng-class="{'visible': $ctrl.ui.loading}")
+.loading-overlay(ng-class="{'visible': $ctrl.ui.loading || $ctrl.ui.loadingProgress !== null}")
+	.loading-overlay-progress
+		.loading-overlay-progress-inner
+		.loading-overlay-progress-innercover(style="width:{{100 - $ctrl.ui.loadingProgress}}%")
+		
 //.intro-overlay(ng-class="{'hidden': $ctrl.ui.showIntro}", aria-hidden="true")
 	svg(viewBox="0 0 512 512")
 		use(xlink:href="#app_icon")

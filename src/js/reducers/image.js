@@ -42,6 +42,7 @@ export function reducer(state = defaultState, action) {
 		case SET_SOURCE_TYPE:
 			return {
 				...state,
+				error: null,
 				sourceType: action.payload,
 			}
 		case SET_ERROR:

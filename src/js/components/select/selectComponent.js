@@ -1,5 +1,6 @@
 import { actions as uiActions } from '../../reducers/ui';
 import { actions as imageActions } from '../../reducers/image';
+import Progress from 'image-progress';
 
 export class SelectComponent {
 	constructor($ngRedux) {
@@ -38,6 +39,26 @@ export class SelectComponent {
 			});
 
 			reader.readAsDataURL(file);
+		}
+	}
+
+	loadImageUrl(url, event) {
+		if (event) {
+			const code = event.which || event.keyCode;
+			if (code != 13) {
+				this.setError(null);
+				return false;
+			}
+		}
+
+		if (!url || url.trim().length === 0) {
+			this.setError('Please enter a valid URL.');
+		} else if (!url.match(/\.png$|\.jpg$|\.gif$|\.jpeg$/gi)) {
+			//validate image URL for accepted file types
+			this.setError('Please enter a valid PNG, JPG, or GIF image URL.');
+		} else {
+			//load image
+			this.setError(null);
 		}
 	}
 

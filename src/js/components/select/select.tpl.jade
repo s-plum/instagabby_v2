@@ -27,8 +27,13 @@
 	input#image-upload-url(
 		type="url"
 		placeholder="Enter URL"
+		ng-model="imageUrl"
+		ng-keypress="$ctrl.loadImageUrl(imageUrl, $event)"
 	)
-	button#image-upload-url-submit.btn(type="button") Get Image
+	button#image-upload-url-submit.btn(
+		type="button"
+		ng-click="$ctrl.loadImageUrl(imageUrl)"
+	) Get Image
 	p.error(
 		ng-if="$ctrl.image.error"
 	) {{ $ctrl.image.error }}

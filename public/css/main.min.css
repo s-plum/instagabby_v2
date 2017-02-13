@@ -45,7 +45,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-ig-app, ig-app .intro-overlay, ig-select .image-upload-field {
+ig-app, ig-app .intro-overlay, ig-app .loading-overlay, ig-select .image-upload-field {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -194,6 +194,46 @@ ig-app {
                 animation: fadeOut 500ms ease 1000ms;
         -webkit-animation-fill-mode: forwards;
                 animation-fill-mode: forwards; }
+  ig-app .loading-overlay {
+    background: #fff;
+    display: none;
+    opacity: 0;
+    top: 75px;
+    z-index: 2; }
+    ig-app .loading-overlay-progress {
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      box-sizing: border-box;
+      height: 12px;
+      margin: 20vh auto 10px;
+      max-width: 20rem;
+      overflow: hidden;
+      padding: 1px;
+      position: relative;
+      width: 80%; }
+      ig-app .loading-overlay-progress-inner {
+        background: #c737aa;
+        background: -webkit-linear-gradient(left, #3f6ac8 0%, #c737aa 30%, #c737aa 50%, #e34673 60%, #fc5342 80%, #fedc55 100%);
+        background: linear-gradient(to right, #3f6ac8 0%, #c737aa 30%, #c737aa 50%, #e34673 60%, #fc5342 80%, #fedc55 100%);
+        border-radius: 3px;
+        height: 100%;
+        width: 100%; }
+      ig-app .loading-overlay-progress-innercover {
+        background: #fff;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        -webkit-transition: all 300ms ease;
+        transition: all 300ms ease; }
+    ig-app .loading-overlay.visible {
+      -webkit-animation: animationSpeed fadeIn 200ms ease;
+              animation: animationSpeed fadeIn 200ms ease;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+      display: block;
+      opacity: 0; }
 
 #select {
   position: relative; }
