@@ -1,6 +1,6 @@
 # Instagabby v2.0
 
-<p align="center">![Gabby approves.](http://plumlabs.plumertz.net/instagabby/img/gabby.png)</p>
+<p align="center"><img src="http://plumlabs.plumertz.net/instagabby/img/gabby.png" alt="Gabby approves."/></p>
 
 ## Stack
 * [Node](https://nodejs.org/en/)/[Express](http://expressjs.com/) for servers and things.
