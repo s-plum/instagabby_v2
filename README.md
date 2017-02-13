@@ -1,6 +1,6 @@
-# Instagabby V2
+# Instagabby v2.0
 
-![Gabby approves.](http://plumlabs.plumertz.net/instagabby/img/gabby.png)
+<p align="center">![Gabby approves.](http://plumlabs.plumertz.net/instagabby/img/gabby.png)</p>
 
 ## Stack
 * [Node](https://nodejs.org/en/)/[Express](http://expressjs.com/) for servers and things.
