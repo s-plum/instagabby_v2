@@ -1,0 +1,114 @@
+#select {
+	position: relative;
+}
+
+ig-select {
+	.image-select-actions {
+		align-items: center;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		margin-top: 20vh;
+		transition: all $animationSpeed ease;
+		transform: translateZ(0);
+
+		button {
+			background: none;
+			border: 0;
+			display: block;
+			height: 100px;
+			margin: 0 10px; 
+			padding: 0;
+			transition: all $animationSpeed ease;
+			width: 100px;
+
+			@media (min-width: $start-md) {
+				height: 200px;
+				margin: 0 20px;
+				width: 200px;
+			}
+
+			@media (min-width: $max-width) {
+				margin: 0 30px;
+			}
+
+			&:hover, &:focus {
+				filter: saturate(200%);
+				transform: scale(1.1);
+			}
+
+			svg {
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		&.has-source-type {
+			margin-top: 15px;
+
+			button {
+				backface-visibility: hidden;
+				height: 50px;
+				width: 50px;
+				margin: 0 5px;
+			}
+
+			&[data-source-type="url"] .image-select-file, &[data-source-type="upload"] .image-select-link {
+				filter: saturate(0);
+
+				&:hover, &:focus {
+					filter: saturate(100%);
+					transform: scale(1);
+				}
+			}
+
+			&[data-source-type="url"] .image-select-link, &[data-source-type="upload"] .image-select-file {
+				transform: scale(1.1);
+			}
+		}
+	}
+
+	.image-upload-field {
+		@extend %fill;
+		animation: 500ms fadeIn 100ms ease;
+		animation-fill-mode: forwards;
+		margin-top: 20vh;
+		opacity: 0;
+		padding: 80px 20px 20px;
+		text-align: center;
+	}
+
+	#image-upload-url {
+		background: none;
+		border: 1px solid #dbdbdb;
+		border-radius: 3px;
+		box-sizing: border-box;
+		color: #262626;
+		display: block;
+		font-size: 14px;
+		font-weight: 300;
+		margin: 0 auto 0.5rem;
+		max-width: 20rem;
+		padding: 9px 8px;
+		-webkit-appearance: none;
+		width: 100%;
+
+		&:focus {
+			border: 1px solid #b2b2b2;
+			outline: none;
+		}
+
+		&-submit {
+			max-width: 20rem;
+			width: 100%;
+		}
+	}
+
+	.error {
+		color: $error;
+		font-size: 0.875rem;
+		font-weight: 400;
+		margin-top: 2rem;
+	}
+}

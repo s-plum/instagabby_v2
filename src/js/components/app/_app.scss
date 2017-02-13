@@ -1,0 +1,34 @@
+ig-app {
+	@extend %fill;
+	display: flex;
+	flex-flow: column;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+
+	.intro-overlay {
+		@extend %fill;
+		align-items: center;
+		background: #fff;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		position: fixed;
+		z-index: 10;
+
+		svg {
+			display: block;
+			height: 150px;
+			width: 150px;
+		}
+
+		&.hidden {
+			animation: fadeOut 500ms ease 1500ms;
+			animation-fill-mode: forwards;
+			
+			svg {
+				animation: fadeOut 500ms ease 1000ms;
+				animation-fill-mode: forwards;
+			}
+		}
+	}
+}

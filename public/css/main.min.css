@@ -1,0 +1,304 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+ig-app, ig-app .intro-overlay, ig-select .image-upload-field {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.wai {
+  display: block;
+  height: 0;
+  margin: 0 !important;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute;
+  text-align: left;
+  text-indent: -9999em;
+  width: 0;
+  z-index: -1; }
+
+html, body {
+  height: 100%;
+  width: 100%; }
+
+body {
+  background: #fafafa;
+  color: #000;
+  font: 300 16px/1.25 "proxima-nova", Helvetica, sans-serif; }
+
+.js .no-js {
+  display: none; }
+
+button, a {
+  cursor: pointer; }
+  button:hover, button:focus, a:hover, a:focus {
+    outline: none; }
+
+section {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto; }
+  section:focus {
+    outline: 0; }
+
+ig-app, ig-select, ig-save, ig-gabby, ig-crop {
+  display: block; }
+
+header {
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto; }
+  header h1 {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1010px;
+    padding: 20px 40px; }
+    header h1 a {
+      display: block; }
+    header h1 svg {
+      color: #000;
+      display: block;
+      margin: 0 auto;
+      max-width: 175px;
+      width: 100%; }
+      @media (min-width: 600px) {
+        header h1 svg {
+          margin: 0; } }
+
+.btn {
+  background: #3897f0;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font: 400 16px/1 "proxima-nova", Helvetica, sans-serif;
+  height: 34px;
+  padding: 9px 16px; }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+    z-index: 1; }
+  100% {
+    opacity: 0;
+    z-index: -1; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    z-index: 1; }
+  100% {
+    opacity: 0;
+    z-index: -1; } }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+ig-app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; }
+  ig-app .intro-overlay {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: fixed;
+    z-index: 10; }
+    ig-app .intro-overlay svg {
+      display: block;
+      height: 150px;
+      width: 150px; }
+    ig-app .intro-overlay.hidden {
+      -webkit-animation: fadeOut 500ms ease 1500ms;
+              animation: fadeOut 500ms ease 1500ms;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+      ig-app .intro-overlay.hidden svg {
+        -webkit-animation: fadeOut 500ms ease 1000ms;
+                animation: fadeOut 500ms ease 1000ms;
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards; }
+
+#select {
+  position: relative; }
+
+ig-select .image-select-actions {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20vh;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0); }
+  ig-select .image-select-actions button {
+    background: none;
+    border: 0;
+    display: block;
+    height: 100px;
+    margin: 0 10px;
+    padding: 0;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+    width: 100px; }
+    @media (min-width: 600px) {
+      ig-select .image-select-actions button {
+        height: 200px;
+        margin: 0 20px;
+        width: 200px; } }
+    @media (min-width: 1010px) {
+      ig-select .image-select-actions button {
+        margin: 0 30px; } }
+    ig-select .image-select-actions button:hover, ig-select .image-select-actions button:focus {
+      -webkit-filter: saturate(200%);
+              filter: saturate(200%);
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1); }
+    ig-select .image-select-actions button svg {
+      display: block;
+      height: 100%;
+      width: 100%; }
+  ig-select .image-select-actions.has-source-type {
+    margin-top: 15px; }
+    ig-select .image-select-actions.has-source-type button {
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      height: 50px;
+      width: 50px;
+      margin: 0 5px; }
+    ig-select .image-select-actions.has-source-type[data-source-type="url"] .image-select-file, ig-select .image-select-actions.has-source-type[data-source-type="upload"] .image-select-link {
+      -webkit-filter: saturate(0);
+              filter: saturate(0); }
+      ig-select .image-select-actions.has-source-type[data-source-type="url"] .image-select-file:hover, ig-select .image-select-actions.has-source-type[data-source-type="url"] .image-select-file:focus, ig-select .image-select-actions.has-source-type[data-source-type="upload"] .image-select-link:hover, ig-select .image-select-actions.has-source-type[data-source-type="upload"] .image-select-link:focus {
+        -webkit-filter: saturate(100%);
+                filter: saturate(100%);
+        -webkit-transform: scale(1);
+                transform: scale(1); }
+    ig-select .image-select-actions.has-source-type[data-source-type="url"] .image-select-link, ig-select .image-select-actions.has-source-type[data-source-type="upload"] .image-select-file {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1); }
+
+ig-select .image-upload-field {
+  -webkit-animation: 500ms fadeIn 100ms ease;
+          animation: 500ms fadeIn 100ms ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  margin-top: 20vh;
+  opacity: 0;
+  padding: 80px 20px 20px;
+  text-align: center; }
+
+ig-select #image-upload-url {
+  background: none;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: #262626;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0 auto 0.5rem;
+  max-width: 20rem;
+  padding: 9px 8px;
+  -webkit-appearance: none;
+  width: 100%; }
+  ig-select #image-upload-url:focus {
+    border: 1px solid #b2b2b2;
+    outline: none; }
+  ig-select #image-upload-url-submit {
+    max-width: 20rem;
+    width: 100%; }
+
+ig-select .error {
+  color: #ed4956;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-top: 2rem; }
+
+/*# sourceMappingURL=main.min.css.map*/

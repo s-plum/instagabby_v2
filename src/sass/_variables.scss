@@ -1,0 +1,28 @@
+$start-md: 600px;
+$max-width: 1010px;
+$animationSpeed: 300ms;
+$font-face: 'proxima-nova', Helvetica, sans-serif;
+
+$accent: #3897f0;
+$error: #ed4956;
+
+%fill {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+%wai {
+	display: block;
+	height: 0;
+	margin: 0 !important;
+	overflow: hidden;
+	padding: 0 !important;
+	position: absolute;
+	text-align: left;
+	text-indent: -9999em;
+	width: 0;
+	z-index: -1;
+}

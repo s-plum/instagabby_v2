@@ -1,0 +1,80 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	background: #fafafa;
+	color: #000;
+	font: 300 16px/1.25 $font-face;
+}
+
+.js .no-js {
+	display: none;
+}
+
+button, a {
+	cursor: pointer;
+
+	&:hover, &:focus {
+		outline: none;
+	}
+}
+
+section {
+	//min-height: 100vh;
+	flex: 1 0 auto;
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+ig-app, ig-select, ig-save, ig-gabby, ig-crop {
+	display: block;
+}
+
+.wai {
+	@extend %wai;
+}
+
+header {
+	background: #fff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+	flex: 0 0 auto;
+
+	h1 {
+		box-sizing: border-box;
+		margin: 0 auto;
+		max-width: $max-width;
+		padding: 20px 40px;
+
+		a {
+			display: block;
+		}
+
+		svg {
+			color: #000;
+			display: block;
+			margin: 0 auto;
+			max-width: 175px;
+			width: 100%;
+
+			@media (min-width: $start-md) {
+				margin: 0;
+			}
+		}
+	}	
+}
+
+.btn {
+	background: $accent;
+	border: 0;
+	border-radius: 4px;
+	box-sizing: border-box;
+	color: #fff;
+	display: inline-block;
+	font: 400 16px/1 $font-face;
+	height: 34px;
+	padding: 9px 16px;
+}

@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width,initial-scale=1")
+		meta(name="mobile-web-app-capable", content="yes")
+		link(rel="icon", type="image/png", href="/img/favicon/32.png", sizes="32x32")
+		link(rel="icon", type="image/png", href="/img/favicon/96.png", sizes="96x96")
+		link(rel="icon", type="image/png", href="/img/favicon/16.png", sizes="16x16")
+		link(rel="apple-touch-icon-precomposed", href="/img/favicon/152.png")
+		link(rel='stylesheet', href='/css/main.min.css')
+		script.
+			document.getElementsByTagName('html')[0].className="js";
+		script(src="https://use.typekit.net/ybw2uvr.js")
+		script.
+			try{Typekit.load({ async: true });}catch(e){}
+		title= 'Instagabby 2.0'
+	body
+	block content
+	script(src="/js/main.min.js")
