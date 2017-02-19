@@ -1,9 +1,6 @@
 ig-app {
 	@extend %fill;
-	display: flex;
-	flex-flow: column;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
+	overflow: hidden;
 
 	.intro-overlay {
 		@extend %fill;

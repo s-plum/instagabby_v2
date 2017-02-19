@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "angular": "^1.6.1",
+    "base64-arraybuffer": "^0.1.5",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "croppie": "^2.4.0",

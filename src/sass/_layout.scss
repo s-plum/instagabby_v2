@@ -22,8 +22,9 @@ button, a {
 }
 
 section {
-	//min-height: 100vh;
-	flex: 1 0 auto;
+	height: calc(100% - 75px);
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 
 	&:focus {
 		outline: 0;
@@ -41,7 +42,9 @@ ig-app, ig-select, ig-save, ig-gabby, ig-crop {
 header {
 	background: #fff;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+	box-sizing: border-box;
 	flex: 0 0 auto;
+	height: 75px;
 
 	h1 {
 		box-sizing: border-box;

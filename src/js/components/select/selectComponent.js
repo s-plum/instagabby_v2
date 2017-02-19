@@ -1,6 +1,9 @@
 import { actions as uiActions } from '../../reducers/ui';
 import { actions as imageActions } from '../../reducers/image';
 import Progress from 'image-progress';
+import base64ArrayBuffer from 'base64-arraybuffer';
+
+const imageUrlRegex = /\.(png|jpg|gif|jpeg)$/gi;
 
 export class SelectComponent {
 	constructor($ngRedux) {
@@ -53,12 +56,40 @@ export class SelectComponent {
 
 		if (!url || url.trim().length === 0) {
 			this.setError('Please enter a valid URL.');
-		} else if (!url.match(/\.png$|\.jpg$|\.gif$|\.jpeg$/gi)) {
+		} else if (!url.match(imageUrlRegex)) {
 			//validate image URL for accepted file types
 			this.setError('Please enter a valid PNG, JPG, or GIF image URL.');
 		} else {
 			//load image
 			this.setError(null);
+			this.setLoadingProgress(0);
+			let self = this;
+
+			var xmlHTTP = new XMLHttpRequest();
+			xmlHTTP.open('GET', url, true);
+			xmlHTTP.responseType = 'arraybuffer';
+			xmlHTTP.onload = (e) => {
+				self.setLoadingProgress(100);
+				
+				let fileType = imageUrlRegex.exec(url)[1];
+
+				if (fileType === 'jpg') {
+					fileType = 'jpeg';
+				}
+
+				var blob = new Blob([e.target.response],{type:`image/${fileType}`});
+				var reader = new FileReader();
+				reader.addEventListener('load', () => {
+					self.setRawSource(reader.result);
+					self.setLoadingProgress(null);
+					self.setStep(2);
+				});
+				reader.readAsDataURL(blob);
+			};
+			xmlHTTP.onprogress = (e) => {
+				self.setLoadingProgress(parseInt((e.loaded / e.total) * 100));
+			};
+			xmlHTTP.send();
 		}
 	}
 
