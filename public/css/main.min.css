@@ -46,7 +46,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-ig-app, ig-app .intro-overlay, ig-app .loading-overlay, ig-select .image-upload-field {
+ig-app, ig-app .intro-overlay, ig-app .loading-overlay, ig-app .loading-overlay-noprogress, ig-select .image-upload-field {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -156,6 +156,22 @@ header {
   100% {
     opacity: 1; } }
 
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg); } }
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg); } }
+
 ig-app {
   overflow: hidden; }
   ig-app .intro-overlay {
@@ -222,9 +238,28 @@ ig-app {
         bottom: 0;
         -webkit-transition: all 300ms ease;
         transition: all 300ms ease; }
+    ig-app .loading-overlay-noprogress {
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      ig-app .loading-overlay-noprogress svg {
+        -webkit-animation: 1s rotate linear infinite;
+                animation: 1s rotate linear infinite;
+        height: 100px;
+        width: 100px; }
     ig-app .loading-overlay.visible {
-      -webkit-animation: animationSpeed fadeIn 200ms ease;
-              animation: animationSpeed fadeIn 200ms ease;
+      -webkit-animation: 300ms fadeIn 200ms ease;
+              animation: 300ms fadeIn 200ms ease;
       -webkit-animation-fill-mode: forwards;
               animation-fill-mode: forwards;
       display: block;
@@ -500,5 +535,41 @@ ig-crop {
     content: '\21BA'; }
   ig-crop .cr-rotate-r i:before {
     content: '\21BB'; }
+
+ig-gabby {
+  padding: 20px; }
+  ig-gabby #edit-workspace {
+    margin: 0 auto 20px;
+    max-width: 500px;
+    overflow: hidden;
+    position: relative;
+    width: 100%; }
+  ig-gabby #edit-controls {
+    position: absolute;
+    right: 0;
+    top: 0; }
+  ig-gabby #edit-workspace-image {
+    background-size: cover;
+    background-position: center;
+    width: 100%; }
+    ig-gabby #edit-workspace-image:before {
+      content: "";
+      display: block;
+      padding-bottom: 100%; }
+  ig-gabby #edit-workspace-gabby {
+    bottom: 0;
+    right: 0;
+    position: absolute; }
+    ig-gabby #edit-workspace-gabby img {
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      -webkit-user-drag: none;
+      apple-user-drag: none;
+      khtml-user-drag: none; }
+  ig-gabby #edit-download {
+    display: block;
+    margin: 0 auto 2rem; }
 
 /*# sourceMappingURL=main.min.css.map*/

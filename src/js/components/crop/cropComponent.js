@@ -24,11 +24,13 @@ export class CropComponent {
 	}
 
 	cropImage() {
+		this.setLoadingProgress(null);
+		this.setLoading(true);
 		this.croppie.result({
 			type: 'base64',
 			size: 'original',
 		}).then(result => {
-			this.setCroppedSource();
+			this.setCroppedSource(result);
 			this.setStep(3);
 		});
 	}

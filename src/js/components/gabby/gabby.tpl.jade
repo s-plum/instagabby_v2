@@ -2,11 +2,23 @@
 	#edit-controls(tabindex="0")
 		.edit-controls-field
 			label(for="edit-controls-scale") Size
-			input#edit-controls-scale(type="range", min="0", max="100", value="33")
+			input#edit-controls-scale(
+				type="range" 
+				min="0" 
+				max="100" 
+				value="0"
+			)
 		.edit-controls-field
 			label(for="edit-controls-rotate") Rotation
-			input#edit-controls-rotate(type="range", min="0", max="360", value="0")
-	#edit-workspace-image
+			input#edit-controls-rotate(
+				type="range" 
+				min="0" 
+				max="360" 
+				value="0"
+			)
+	#edit-workspace-image(style="background-image:url({{$ctrl.image.cropped}})")
 	#edit-workspace-gabby
 		img(src="/img/gabby.png", alt="gabby")
-button#edit-download(type="button") Download Image
+button#edit-download.btn(
+	type="button"
+) Download Image

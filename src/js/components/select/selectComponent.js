@@ -3,7 +3,7 @@ import { actions as imageActions } from '../../reducers/image';
 import Progress from 'image-progress';
 import base64ArrayBuffer from 'base64-arraybuffer';
 
-const imageUrlRegex = /\.(png|jpg|gif|jpeg)$/gi;
+const imageUrlRegex = /\.(png|jpg|gif|jpeg)\?{0,1}.*$/gi;
 
 export class SelectComponent {
 	constructor($ngRedux) {

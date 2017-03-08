@@ -68,8 +68,22 @@ ig-app {
 			}
 		}
 
+		&-noprogress {
+			@extend %fill;
+			align-items: center;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+
+			svg {
+				animation: 1s rotate linear infinite;
+				height: 100px;
+				width: 100px;
+			}
+		}
+
 		&.visible {
-			animation: animationSpeed fadeIn 200ms ease;
+			animation: $animationSpeed fadeIn 200ms ease;
 			animation-fill-mode: forwards;
 			display: block;
 			opacity: 0;

@@ -16,6 +16,7 @@ import '../sass/main.scss';
 import '../img/svg/app_icon.svg';
 import '../img/svg/logotext_icon.svg';
 import '../img/svg/link.svg';
+import '../img/svg/loader.svg';
 import '../img/svg/photo.svg';
 
 // Init app
