@@ -1,24 +1,35 @@
 #edit-workspace
 	#edit-controls(tabindex="0")
 		.edit-controls-field
-			label(for="edit-controls-scale") Size
+			label(for="edit-controls-scale") Scale
 			input#edit-controls-scale(
 				type="range" 
-				min="0" 
-				max="100" 
-				value="0"
+				min="10" 
+				max="150" 
+				ng-model="$ctrl.scale"
+				ng-change="$ctrl.setScale($ctrl.scale)"
+
 			)
 		.edit-controls-field
-			label(for="edit-controls-rotate") Rotation
+			label(for="edit-controls-rotate") Rotate
 			input#edit-controls-rotate(
 				type="range" 
 				min="0" 
 				max="360" 
-				value="0"
+				ng-model="$ctrl.rotate"
+				ng-change="$ctrl.setRotate($ctrl.rotate)"
 			)
 	#edit-workspace-image(style="background-image:url({{$ctrl.image.cropped}})")
-	#edit-workspace-gabby
-		img(src="/img/gabby.png", alt="gabby")
+	#edit-workspace-gabby(
+		style="top:{{$ctrl.image.yPos}};left:{{$ctrl.image.xPos}};width:{{$ctrl.image.scale}}%;"
+	)
+		#edit-workspace-gabby-scaleadjust
+			img(
+				src="/img/gabby.png" 
+				alt="gabby"
+				style="transform:rotate({{$ctrl.image.rotate}}deg);-webkit-transform:rotate({{$ctrl.image.rotate}}deg);"
+			)
 button#edit-download.btn(
 	type="button"
+	ng-click="$ctrl.download()"
 ) Download Image

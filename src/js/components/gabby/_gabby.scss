@@ -10,9 +10,129 @@ ig-gabby {
 	}
 
 	#edit-controls {
+		background: rgba(255, 255, 255, 0.8);
+		opacity: 0.5;
+		padding: 8px;
 		position: absolute;
 		right: 0;
 		top: 0;
+		transition: opacity 200ms ease;
+		z-index: 2;
+
+		&:hover, &:focus {
+			opacity: 1;
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		.edit-controls-field {
+			align-items: center;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+
+			&:not(:last-child) {
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		label {
+			font-weight: 400;
+			font-size: 0.875rem;
+			margin-bottom: 0;
+			display: block;
+			width: 4em;
+		}
+
+		input[type=range] {
+			background: none;
+			appearance: none;
+			margin: 0;
+
+			&:focus {
+				outline: none;
+			}
+
+			&::-webkit-slider-runnable-track {
+				box-shadow: inset 1px 1px 1px 0 rgba(0,0,0,0.1);
+				width: 100%;
+				height: 5px;
+				cursor: pointer;
+				animate: 0.2s;
+				background: rgba(0, 0, 0, 0.1);
+				border-radius: 2px;
+				border: 0;
+			}
+
+			&::-webkit-slider-thumb {
+				border: 0;
+				height: 15px;
+				width: 15px;
+				border-radius: 3px;
+				background: lighten($accent, 10%);
+				cursor: pointer;
+				-webkit-appearance: none;
+				margin-top: -6px;
+			}
+
+			&::-moz-range-track {
+				box-shadow: inset 1px 1px 1px 0 rgba(0,0,0,0.1);
+				width: 100%;
+				height: 5px;
+				cursor: pointer;
+				animate: 0.2s;
+				background: rgba(0, 0, 0, 0.1);
+				border-radius: 2px;
+				border: 0;
+			}
+
+			&::-moz-range-thumb {
+				border: 0;
+				height: 16px;
+				width: 16px;
+				border-radius: 3px;
+				background: $accent;
+				cursor: pointer;
+				-webkit-appearance: none;
+				margin-top: -7px;
+			}
+
+			&::-ms-track {
+				background: transparent;
+				border-color: transparent;
+				border-width: 8px 0;
+				color: transparent;
+				animate: 0.2s;
+				cursor: pointer;
+				height: 5px;
+				width: 100%;
+			}
+
+			&::-ms-fill-lower {
+				background: rgba(0, 0, 0, 0.1);
+				border: 0;
+				border-radius: 2px;
+				box-shadow: inset 1px 1px 1px 0 rgba(0,0,0,0.1);
+			}
+
+			&::-ms-fill-upper {
+				background: rgba(0, 0, 0, 0.1);
+				border: 0;
+				border-radius: 2px;
+				box-shadow: inset 1px 1px 1px 0 rgba(0,0,0,0.1);
+			}
+
+			&::-ms-thumb {
+				background: $accent;
+				border: 0;
+				border-radius: 3px;
+				cursor: pointer;
+				height: 16px;
+				width: 16px;
+			}
+		}
 	}
 
 	#edit-workspace-image {
@@ -28,15 +148,23 @@ ig-gabby {
 	}
 
 	#edit-workspace-gabby {
-		bottom: 0;
+		cursor: move;
+		left: 40%;
 		right: 0;
 		position: absolute;
+		top: 49%;
+
+		&-scaleadjust {
+			transform: translate3d(-50%, -50%, 0);
+		}
 
 		img {
 			user-select: none;
 			-webkit-user-drag: none;
 			apple-user-drag: none;
 			khtml-user-drag: none;
+			height: auto;
+			width: 100%;
 		}
 	}
 
@@ -44,4 +172,14 @@ ig-gabby {
 		display: block;
 		margin: 0 auto 2rem;
 	}
+}
+
+.edit-canvas {
+	// height: 0;
+	// overflow: hidden;
+	// opacity: 0;
+	// position: absolute;
+	// width: 0;
+	// z-index: -1;
+	margin-top: 500px;
 }

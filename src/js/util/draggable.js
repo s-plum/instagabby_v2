@@ -1,44 +1,61 @@
 let selected = null,
 	container = null,
+	stopCallback = null,
 	x_pos = 0, 
 	y_pos = 0, // Stores x & y coordinates of the mouse pointer
 	x_elem = 0, 
 	y_elem = 0; // Stores top, left values (edge) of the element
 
+const _set_pos = (e) => {
+	if (e.touches) {
+		x_pos = e.touches[0].pageX;
+		y_pos = e.touches[0].pageY;
+	} else {
+		x_pos = document.all ? window.event.clientX : e.pageX;
+		y_pos = document.all ? window.event.clientY : e.pageY;
+	}
+};
+
 // Will be called when user starts dragging an element
-function _drag_init(elem) {
-	// Store the object of the element which needs to be moved
+const _drag_init = (e, elem) => {
+	_set_pos(e);
+
 	selected = elem;
 	x_elem = x_pos - selected.offsetLeft;
 	y_elem = y_pos - selected.offsetTop;
-}
+};
 
 // Will be called when user dragging an element
-function _move_elem(e) {
-	x_pos = document.all ? window.event.clientX : e.pageX;
-	y_pos = document.all ? window.event.clientY : e.pageY;
+const _move_elem = (e) => {
+	_set_pos(e);
 	
 	if (selected !== null) {
-		selected.style.left = (x_pos - x_elem) + 'px';
-		selected.style.top = (y_pos - y_elem) + 'px';
+		const left = (x_pos - x_elem) + 'px';
+		const top = (y_pos - y_elem) + 'px';
+		selected.style.left = left;
+		selected.style.top = top;
+
+		if (stopCallback) {
+			stopCallback([left, top]);
+		}
 	}
-}
+};
 
 // Destroy the object when we are done
-function _destroy() {
+const _destroy = () => {
 	selected = null;
 }
 
 const bindStart = (elem) => {
-	elem.onmousedown = () => {
-		_drag_init(elem);
+	elem.onmousedown = (e) => {
+		_drag_init(e, elem);
 	};
-	elem.ontouchstart = () => {
-		_drag_init(elem);
-	};
+	elem.addEventListener('touchstart', (e) => {
+		_drag_init(e, elem);
+	});
 };
 
-const makeDraggable = (elemId, containerId) => {
+const makeDraggable = (elemId, containerId, cb) => {
 	if (containerId) {
 		container = document.getElementById(containerId);
 	}
@@ -46,11 +63,15 @@ const makeDraggable = (elemId, containerId) => {
 		container = document;
 	}
 
+	if (cb) {
+		stopCallback = cb;
+	}
+
 	bindStart(document.getElementById(elemId));
 	container.onmouseup = _destroy;
 	container.ontouchend = _destroy;
 	container.onmousemove = _move_elem;
-	container.ontouchmove = _move_elem;
+	container.addEventListener('touchmove', _move_elem);
 	container.addEventListener('contextmenu', (e) => {
 		e.preventDefault();
 	});
