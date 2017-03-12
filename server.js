@@ -21,6 +21,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//custom headers and domain information
+app.use(function(req, res, next) {
+    res.header('X-Powered-By', 'Cupcakes');
+    res.locals.domain = (req.connection && req.connection.encrypted ? 'https' : 'http') + '://' + req.headers.host;
+    next();
+});
+
 app.use('/', index);
 
 // catch 404 and forward to error handler
