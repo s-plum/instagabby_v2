@@ -89,6 +89,10 @@ export class SelectComponent {
 			xmlHTTP.onprogress = (e) => {
 				self.setLoadingProgress(parseInt((e.loaded / e.total) * 100));
 			};
+			xmlHTTP.onerror = (e) => {
+				self.setLoadingProgress(null);
+				self.setError('Error retrieving file. Please try a different image link.');
+			};
 			xmlHTTP.send();
 		}
 	}

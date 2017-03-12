@@ -7,7 +7,7 @@
 				min="10" 
 				max="150" 
 				ng-model="$ctrl.scale"
-				ng-change="$ctrl.setScale($ctrl.scale)"
+				ng-change="$ctrl.setScaleAndCenter($ctrl.scale)"
 
 			)
 		.edit-controls-field
@@ -19,17 +19,15 @@
 				ng-model="$ctrl.rotate"
 				ng-change="$ctrl.setRotate($ctrl.rotate)"
 			)
-	#edit-workspace-image(style="background-image:url({{$ctrl.image.cropped}})")
+	#edit-workspace-image
 	#edit-workspace-gabby(
-		style="top:{{$ctrl.image.yPos}};left:{{$ctrl.image.xPos}};width:{{$ctrl.image.scale}}%;"
+		style="top:{{$ctrl.gabby.yPos}}px;left:{{$ctrl.gabby.xPos}}px;width:{{$ctrl.gabby.scale}}%;"
 	)
-		#edit-workspace-gabby-scaleadjust
-			img(
-				src="/img/gabby.png" 
-				alt="gabby"
-				style="transform:rotate({{$ctrl.image.rotate}}deg);-webkit-transform:rotate({{$ctrl.image.rotate}}deg);"
-			)
-button#edit-download.btn(
-	type="button"
+		img(
+			src="/img/gabby.png" 
+			alt="gabby"
+			style="transform:rotate({{$ctrl.gabby.rotate}}deg);-webkit-transform:rotate({{$ctrl.gabby.rotate}}deg);"
+		)
+a#edit-download.btn(
 	ng-click="$ctrl.download()"
 ) Download Image

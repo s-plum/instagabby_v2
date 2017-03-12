@@ -24,8 +24,8 @@ export class CropComponent {
 	}
 
 	cropImage() {
-		this.setLoadingProgress(null);
 		this.setLoading(true);
+		this.setLoadingProgress(null);
 		this.croppie.result({
 			type: 'base64',
 			size: 'original',

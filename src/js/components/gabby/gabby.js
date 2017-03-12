@@ -1,45 +1,39 @@
 import { createAction } from '../../reducers/util';
 
-const SET_ROTATION = 'Gabby: SET_ROTATION';
+const SET_ROTATE = 'Gabby: SET_ROTATE';
 const SET_SCALE = 'Gabby: SET_SCALE';
-const SET_X = 'Gabby: SET_X';
-const SET_Y = 'Gabby: SET_Y';
+const SET_POSITION = 'Gabby: SET_POSITION';
 
 export const actions = {
-	setRotation: (degrees) => createAction(SET_ROTATION, degrees),
+	setRotate: (deg) => createAction(SET_ROTATE, deg),
 	setScale: (percent) => createAction(SET_SCALE, percent),
-	setX: (position) => createAction(SET_X, position),
-	setY: (position) => createAction(SET_Y, position),
+	setPosition: (coords) => createAction(SET_POSITION, coords),
 };
 
 const defaultState = {
-	rotation: 0,
-	scale: 33,
-	x: 70,
-	y: 40
+	rotate: 0,
+	scale: 60,
+	xPos: 100,
+	yPos: 100,
 };
 
 export function reducer(state = defaultState, action) {
 	switch(action.type) {
-		case SET_ROTATION:
+		case SET_ROTATE:
 			return {
 				...state,
-				rotation: action.degrees,
+				rotate: action.payload,
 			};
+		case SET_POSITION:
+			return {
+				...state,
+				xPos: action.payload[0],
+				yPos: action.payload[1],
+			}
 		case SET_SCALE:
 			return {
 				...state,
-				scale: action.percent,
-			};
-		case SET_X:
-			return {
-				...state,
-				x: action.position,
-			};
-		case SET_Y:
-			return {
-				...state,
-				y: action.position,
+				scale: action.payload,
 			};
 		default:
 			return state;

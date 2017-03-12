@@ -30,13 +30,14 @@ const _move_elem = (e) => {
 	_set_pos(e);
 	
 	if (selected !== null) {
-		const left = (x_pos - x_elem) + 'px';
-		const top = (y_pos - y_elem) + 'px';
-		selected.style.left = left;
-		selected.style.top = top;
+		const left = (x_pos - x_elem);
+		const top = (y_pos - y_elem);
 
 		if (stopCallback) {
 			stopCallback([left, top]);
+		} else {
+			selected.style.left = left + 'px';
+			selected.style.top = top + 'px';
 		}
 	}
 };

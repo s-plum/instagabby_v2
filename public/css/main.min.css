@@ -210,7 +210,7 @@ ig-app {
     display: none;
     opacity: 0;
     top: 75px;
-    z-index: 2; }
+    z-index: 3; }
     ig-app .loading-overlay-progress {
       border: 1px solid #dbdbdb;
       border-radius: 3px;
@@ -537,7 +537,8 @@ ig-crop {
     content: '\21BB'; }
 
 ig-gabby {
-  padding: 20px; }
+  padding: 20px;
+  text-align: center; }
   ig-gabby #edit-workspace {
     margin: 0 auto 20px;
     max-width: 500px;
@@ -664,9 +665,6 @@ ig-gabby {
     right: 0;
     position: absolute;
     top: 49%; }
-    ig-gabby #edit-workspace-gabby-scaleadjust {
-      -webkit-transform: translate3d(-50%, -50%, 0);
-              transform: translate3d(-50%, -50%, 0); }
     ig-gabby #edit-workspace-gabby img {
       -webkit-user-select: none;
          -moz-user-select: none;
@@ -678,10 +676,25 @@ ig-gabby {
       height: auto;
       width: 100%; }
   ig-gabby #edit-download {
-    display: block;
+    display: inline-block;
     margin: 0 auto 2rem; }
 
 .edit-canvas {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  z-index: -1;
   margin-top: 500px; }
+
+ig-save {
+  padding: 20px;
+  text-align: center; }
+  ig-save img {
+    display: block;
+    margin: 1rem auto;
+    max-width: 500px;
+    width: 100%; }
 
 /*# sourceMappingURL=main.min.css.map*/
