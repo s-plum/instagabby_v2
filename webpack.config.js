@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 var PROD = process.env.NODE_ENV === 'production';
 
@@ -49,9 +50,7 @@ let config = {
 if (PROD) {
 	config.plugins = [
 		...config.plugins,
-		new webpack.optimize.UglifyJsPlugin({
-	      compress: { warnings: false }
-	    }),
+		new UglifyJSPlugin(),
 	];
 }
 else {
